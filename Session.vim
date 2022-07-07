@@ -13,12 +13,12 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +34 lua/core/options.lua
-badd +4 ~/.config/nvim/lua/plugins/init.lua
-badd +23 ~/.config/nvim/lua/plugins/configs/alpha.lua
+badd +80 lua/core/options.lua
+badd +55 lua/plugins/init.lua
+badd +16 lua/plugins/configs/treesitter.lua
 argglobal
 %argdel
-edit lua/core/options.lua
+edit lua/plugins/configs/treesitter.lua
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -35,10 +35,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 96 + 96) / 192)
-exe 'vert 2resize ' . ((&columns * 95 + 96) / 192)
+exe 'vert 1resize ' . ((&columns * 95 + 96) / 192)
+exe 'vert 2resize ' . ((&columns * 96 + 96) / 192)
 argglobal
-balt ~/.config/nvim/lua/plugins/init.lua
+balt lua/core/options.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -49,17 +49,17 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 25 - ((24 * winheight(0) + 25) / 51)
+let s:l = 13 - ((12 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 25
-normal! 010|
+keepjumps 13
+normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/.config/nvim/lua/plugins/init.lua", ":p")) | buffer ~/.config/nvim/lua/plugins/init.lua | else | edit ~/.config/nvim/lua/plugins/init.lua | endif
+if bufexists(fnamemodify("lua/plugins/init.lua", ":p")) | buffer lua/plugins/init.lua | else | edit lua/plugins/init.lua | endif
 if &buftype ==# 'terminal'
-  silent file ~/.config/nvim/lua/plugins/init.lua
+  silent file lua/plugins/init.lua
 endif
 balt lua/core/options.lua
 setlocal fdm=manual
@@ -72,16 +72,16 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 4 - ((3 * winheight(0) + 25) / 51)
+let s:l = 185 - ((50 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 4
-normal! 0
+keepjumps 185
+normal! 03|
 wincmd w
 2wincmd w
-exe 'vert 1resize ' . ((&columns * 96 + 96) / 192)
-exe 'vert 2resize ' . ((&columns * 95 + 96) / 192)
+exe 'vert 1resize ' . ((&columns * 95 + 96) / 192)
+exe 'vert 2resize ' . ((&columns * 96 + 96) / 192)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

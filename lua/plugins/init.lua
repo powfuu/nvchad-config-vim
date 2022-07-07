@@ -1,7 +1,8 @@
 vim.cmd "packadd packer.nvim"
 
 local plugins = {
-  ["sheerun/vim-polyglot"]={},
+   ["wbthomason/packer.nvim"] = {},
+   ["sheerun/vim-polyglot"]={},
   ["hail2u/vim-css3-syntax"]={},
   ["xolox/vim-misc"]= {},
    ["styled-components/vim-styled-components"]= { branch="main" },
@@ -13,7 +14,6 @@ local plugins = {
    ["andymass/vim-matchup"]= { },
    ["easymotion/vim-easymotion"]= { },
     ["maxmellon/vim-jsx-pretty"] = { },
-  ["wbthomason/packer.nvim"] = {},
    ["nvim-lua/plenary.nvim"] = { module = "plenary" },
    ["NvChad/extensions"] = { module = { "telescope", "nvchad" } },
    ["NvChad/base46"] = {
@@ -49,17 +49,17 @@ local plugins = {
       end,
    },
 
-   ["nvim-treesitter/nvim-treesitter"] = {
-      module = "nvim-treesitter",
-      setup = function()
-         require("core.lazy_load").on_file_open "nvim-treesitter"
-      end,
-      cmd = require("core.lazy_load").treesitter_cmds,
-      run = ":TSUpdate",
-      config = function()
-         require "plugins.configs.treesitter"
-      end,
-   },
+    ["nvim-treesitter/nvim-treesitter"] = {
+       module = "nvim-treesitter",
+       setup = function()
+          require("core.lazy_load").on_file_open "nvim-treesitter"
+       end,
+       cmd = require("core.lazy_load").treesitter_cmds,
+       run = ":TSUpdate",
+       config = function()
+          require "plugins.configs.treesitter"
+       end,
+    },
 
    -- git stuff
    ["lewis6991/gitsigns.nvim"] = {

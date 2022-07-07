@@ -73,6 +73,11 @@ let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-json', 'coc-prettier'
 set fileencodings=utf-8
 
 
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+
+
 ]]
 opt.syntax="on"
 g.toggle_theme_icon = "   "
