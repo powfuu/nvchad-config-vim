@@ -1,0 +1,8 @@
+{ 
+  "signature.enable": false,
+  "suggest.enablePreview": false,
+  "suggest.floatEnable": true,
+  "suggest.triggerCompletionWait": 0,
+  "suggest.maxCompleteItemCount": 10,
+}
+
