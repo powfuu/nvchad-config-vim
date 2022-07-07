@@ -59,8 +59,8 @@ set timeoutlen=1000
 set ttimeoutlen=0
 set nocursorcolumn
 set nocursorline
-syntax sync minlines=256
-set synmaxcol=200  
+syntax sync minlines=1556
+set synmaxcol=1500  
 
 
 let g:javascript_enable_domhtmlcss = 1
@@ -76,8 +76,6 @@ set fileencodings=utf-8
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
-
-
 ]]
 opt.syntax="on"
 g.toggle_theme_icon = "   "

@@ -13,9 +13,8 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +80 lua/core/options.lua
-badd +55 lua/plugins/init.lua
-badd +16 lua/plugins/configs/treesitter.lua
+badd +20 lua/plugins/configs/treesitter.lua
+badd +63 lua/core/options.lua
 argglobal
 %argdel
 edit lua/plugins/configs/treesitter.lua
@@ -38,7 +37,6 @@ set winwidth=1
 exe 'vert 1resize ' . ((&columns * 95 + 96) / 192)
 exe 'vert 2resize ' . ((&columns * 96 + 96) / 192)
 argglobal
-balt lua/core/options.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -49,19 +47,19 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 13 - ((12 * winheight(0) + 25) / 51)
+let s:l = 14 - ((13 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 13
+keepjumps 14
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("lua/plugins/init.lua", ":p")) | buffer lua/plugins/init.lua | else | edit lua/plugins/init.lua | endif
+if bufexists(fnamemodify("lua/core/options.lua", ":p")) | buffer lua/core/options.lua | else | edit lua/core/options.lua | endif
 if &buftype ==# 'terminal'
-  silent file lua/plugins/init.lua
+  silent file lua/core/options.lua
 endif
-balt lua/core/options.lua
+balt lua/plugins/configs/treesitter.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -72,12 +70,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 185 - ((50 * winheight(0) + 25) / 51)
+let s:l = 64 - ((34 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 185
-normal! 03|
+keepjumps 64
+normal! 0
 wincmd w
 2wincmd w
 exe 'vert 1resize ' . ((&columns * 95 + 96) / 192)

@@ -12,6 +12,7 @@ local options = {
       "lua",
       "vim",
    },
+  sync_install = true,
    highlight = {
       enable = true,
       use_languagetree = true,

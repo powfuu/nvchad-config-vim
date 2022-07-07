@@ -19,7 +19,7 @@ M.ui = {
    changed_themes = {},
    theme_toggle = { "tokyonight", "onedark" },
    theme = "tokyonight", -- default theme
-   transparency = false,
+   transparency = true,
 
    statusline = {
       separator_style = "default", -- default/round/block/arrow
