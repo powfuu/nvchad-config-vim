@@ -11,8 +11,11 @@ local options = {
    ensure_installed = {
       "lua",
       "vim",
+      "javascript",
+      "html",
    },
   sync_install = true,
+  ignore_install = { "javascript","vim","html", "lua" },
    highlight = {
       enable = true,
       use_languagetree = true,

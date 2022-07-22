@@ -1,6 +1,9 @@
 vim.cmd "packadd packer.nvim"
 
 local plugins = {
+   ['tpope/vim-surround'] = { },
+   ["alvan/vim-closetag"] = { },
+   ["prettier/vim-prettier"] = { run="npm install" },
    ["wbthomason/packer.nvim"] = {},
    ["sheerun/vim-polyglot"]={},
   ["hail2u/vim-css3-syntax"]={},
@@ -74,22 +77,22 @@ local plugins = {
 
    -- lsp stuff
 
-   ["williamboman/nvim-lsp-installer"] = {
-      opt = true,
-      cmd = require("core.lazy_load").lsp_cmds,
-      setup = function()
-         require("core.lazy_load").on_file_open "nvim-lsp-installer"
-      end,
-   },
+   -- ["williamboman/nvim-lsp-installer"] = {
+      -- opt = true,
+      -- cmd = require("core.lazy_load").lsp_cmds,
+      -- setup = function()
+         -- require("core.lazy_load").on_file_open "nvim-lsp-installer"
+      -- end,
+   -- },
 
-   ["neovim/nvim-lspconfig"] = {
-      after = "nvim-lsp-installer",
-      module = "lspconfig",
-      config = function()
-         require "plugins.configs.lsp_installer"
-         require "plugins.configs.lspconfig"
-      end,
-   },
+   -- ["neovim/nvim-lspconfig"] = {
+      -- after = "nvim-lsp-installer",
+      -- module = "lspconfig",
+      -- config = function()
+         -- require "plugins.configs.lsp_installer"
+         -- require "plugins.configs.lspconfig"
+      -- end,
+   -- },
 
    -- load luasnips + cmp related in insert mode only
 

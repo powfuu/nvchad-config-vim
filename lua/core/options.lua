@@ -40,6 +40,7 @@ nnoremap <silent> <S-w> :q <CR>
 nmap <silent><S-m> :mks!<CR>
 cnoreabbrev s split
 cnoreabbrev d vsplit
+cnoreabbrev p Prettier
 nmap <silent> <S-A-l> :vsplit<CR>
 nmap <silent> <S-A-k> :split<CR>
 cnoreabbrev f <cmd>Telescope find_files hidden=true<CR>
@@ -55,12 +56,14 @@ augroup END
 set re=1
 :verb set foldmethod?
 set nocursorline
-set timeoutlen=1000
-set ttimeoutlen=0
+set timeout ttimeout         " separate mapping and keycode timeouts
+set timeoutlen=125           " mapping timeout 250ms  (adjust for preference)
+set ttimeoutlen=0           " keycode timeout 20ms
+
 set nocursorcolumn
 set nocursorline
-syntax sync minlines=1556
-set synmaxcol=1500  
+syntax sync minlines=2000
+set synmaxcol=2000  
 
 
 let g:javascript_enable_domhtmlcss = 1
@@ -71,17 +74,21 @@ let g:javascript_plugin_jsdoc = 1
 let g:jsx_ext_required = 0
 let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tabnine']  " list of CoC extensions needed
 set fileencodings=utf-8
-
-
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
+
+let g:closetag_enable_react_fragment = 1
+let g:closetag_filenames = '*.html,*.js,*.lua'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_shortcut = '>'
+"let g:closetag_close_shortcut = '<leader>>' this make the code SLOW when pressing SPACE
+
+
 ]]
 opt.syntax="on"
 g.toggle_theme_icon = "   "
 g.transparency = config.ui.transparency
-g.theme_switcher_loaded = false
-
 -- use filetype.lua instead of filetype.vim
 g.did_load_filetypes = 0
 g.do_filetype_lua = 1
@@ -120,7 +127,7 @@ opt.termguicolors = true
 opt.undofile = true
 
 -- interval for writing swap file to disk, also used by gitsigns
-opt.updatetime = 450
+opt.updatetime = 1000
 
 
 
